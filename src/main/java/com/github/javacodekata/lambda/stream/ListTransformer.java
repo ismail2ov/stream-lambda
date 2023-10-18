@@ -40,7 +40,7 @@ public class ListTransformer {
      *     <li>sort the Integers in ascending order.</li>
      * </ol>
      *
-     * @return
+     * @return List<Integer>
      */
     public List<Integer> getSortedIntegers() {
         return values.stream()
@@ -58,7 +58,7 @@ public class ListTransformer {
      *     <li>sort the Integers in descending order.</li>
      * </ol>
      *
-     * @return
+     * @return List<Integer>
      */
     public List<Integer> getSortedDescendingIntegers() {
         return values.stream()
