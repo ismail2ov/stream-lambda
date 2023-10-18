@@ -43,7 +43,18 @@ public class ListTransformer {
      * @return
      */
     public List<Integer> getSortedIntegers() {
-        return new LinkedList<>();
+        return values.stream()
+                .filter(e -> {
+                    try {
+                        Integer.parseInt(e);
+                        return true;
+                    } catch (NumberFormatException nfe) {
+                        return false;
+                    }
+                })
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     /**
