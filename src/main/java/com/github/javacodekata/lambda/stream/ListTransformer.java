@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -29,7 +28,7 @@ public class ListTransformer {
     public List<String> getSortedStrings() {
         return values.stream()
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -47,7 +46,7 @@ public class ListTransformer {
                 .filter(this::isInteger)
                 .map(Integer::parseInt)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -65,7 +64,7 @@ public class ListTransformer {
                 .filter(this::isInteger)
                 .map(Integer::parseInt)
                 .sorted(Comparator.reverseOrder())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private boolean isInteger(String element) {
