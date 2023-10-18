@@ -44,14 +44,7 @@ public class ListTransformer {
      */
     public List<Integer> getSortedIntegers() {
         return values.stream()
-                .filter(e -> {
-                    try {
-                        Integer.parseInt(e);
-                        return true;
-                    } catch (NumberFormatException nfe) {
-                        return false;
-                    }
-                })
+                .filter(this::isInteger)
                 .map(Integer::parseInt)
                 .sorted()
                 .collect(Collectors.toList());
@@ -71,4 +64,12 @@ public class ListTransformer {
         return new LinkedList<>();
     }
 
+    private boolean isInteger(String element) {
+        try {
+            Integer.parseInt(element);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }
